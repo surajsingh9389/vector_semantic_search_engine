@@ -1,4 +1,4 @@
-# 🚀 Gemini RAG-Base
+# 🚀 Gemini-RAG Pipeline
 
 A high-performance **Retrieval-Augmented Generation (RAG)** pipeline that uses semantic search to ground LLM responses in custom data.
 
