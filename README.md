@@ -1,28 +1,28 @@
-# Vector Semantic Search Engine
+# 🚀 Gemini RAG-Base
 
-This system retrieves information based on conceptual meaning using AI-powered embeddings, rather than literal keyword matching.
+A high-performance **Retrieval-Augmented Generation (RAG)** pipeline that uses semantic search to ground LLM responses in custom data.
 
-## 🚀 Overview
-This project implements a semantic retrieval pipeline. It transforms unstructured text into high-dimensional vectors. It uses **Google Gemini (LLM/Embeddings)** for context-aware representation and **FAISS** for fast similarity searches. This is a core architecture used in modern Retrieval-Augmented Generation (RAG) systems.
+This project implements a complete loop: **Vector Embedding** → **FAISS Retrieval** → **Contextual Generation**.
+
+## 🌟 Key Updates
+*   **Full RAG Integration:** Now generates natural language answers instead of just retrieving raw text.
+*   **Gemini 2.5 Flash:** Powered by the latest [Google Gen AI SDK](https://google.devgemini-api/docs/libraries) for lightning-fast, context-aware responses.
+*   **Optimized Retrieval:** Uses `IndexFlatIP` for cosine-based similarity matching in sub-milliseconds.
 
 ## 🛠️ Tech Stack
-- **Language:** Python
-- **AI Models:** Google Gemini (`gemini-embedding-001`)
-- **Vector Database:** FAISS (Facebook AI Similarity Search)
-- **Data Science:** NumPy (Matrix operations & L2 Normalization)
-- **Environment:** Dotenv (Secure API management)
+*   **LLM:** `gemini-2.5-flash` for high-speed response generation.
+*   **Embeddings:** `gemini-embedding-001` (3072-dimensional vectors).
+*   **Vector DB:** [FAISS](https://github.com) (Facebook AI Similarity Search).
+*   **Processing:** [NumPy](https://numpy.org) for L2 normalization and matrix operations.
 
-## 🧠 Key Features
-- **Semantic Retrieval:** This feature understands user intent and context to find relevant matches.
-- **High-Performance Indexing:** FAISS `IndexFlatIP` is used for similarity matching across datasets in sub-milliseconds.
-- **Optimized Math:** Vector normalization is implemented via NumPy to ensure accurate cosine similarity scoring.
-- **Production-Ready Security:** API credentials are securely managed using environment variables. This prevents sensitive data leaks.
-
-## 📈 How It Works
-1.  **Embedding:** Text converts into 3072-dimensional vectors using the Gemini API.
-2.  **Normalization:** Vectors are normalized to unit length for precise inner-product search.
-3.  **Indexing:** FAISS stores the vectors in a high-speed searchable index.
-4.  **Querying:** User queries are embedded in real-time to find the "nearest neighbors" (most similar concepts) in the database.
+## 📈 Pipeline Architecture
+1.  **Ingestion:** Reads `sentences.txt` and generates embeddings via the [Gemini API](https://google.dev).
+2.  **Normalization:** Vectors are L2-normalized using NumPy to ensure accurate similarity scoring.
+3.  **Indexing:** Normalized vectors are stored in a FAISS `IndexFlatIP` database.
+4.  **Generation:**
+    *   The user query is embedded and searched against the index.
+    *   Top 5 relevant snippets are retrieved as context.
+    *   Gemini 2.5 Flash synthesizes a final answer based **ONLY** on that context.
 
 ## 🔧 Installation
 1.  Clone the repository:
