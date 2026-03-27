@@ -19,7 +19,7 @@ This project implements a semantic retrieval pipeline. It transforms unstructure
 - **Production-Ready Security:** API credentials are securely managed using environment variables. This prevents sensitive data leaks.
 
 ## 📈 How It Works
-1.  **Embedding:** Text converts into 768-dimensional vectors using the Gemini API.
+1.  **Embedding:** Text converts into 3072-dimensional vectors using the Gemini API.
 2.  **Normalization:** Vectors are normalized to unit length for precise inner-product search.
 3.  **Indexing:** FAISS stores the vectors in a high-speed searchable index.
 4.  **Querying:** User queries are embedded in real-time to find the "nearest neighbors" (most similar concepts) in the database.
